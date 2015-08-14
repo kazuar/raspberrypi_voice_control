@@ -4,7 +4,7 @@ import speech_recognition as sr
 
 TURN_TV_ON = "turn tv on"
 TURN_TV_OFF = "turn tv off"
-STOP_CONTROL = "stop control"
+CLOSE_PROGRAM = "close program"
 
 def main():
     # Create cec control
@@ -33,7 +33,7 @@ def main():
                 # Get tv device and turn it off
                 tv = cec.Device(0)
                 tv.standby()
-            elif STOP_CONTROL in command.lower():
+            elif CLOSE_PROGRAM in command.lower():
                 # Stop program
                 break
         except LookupError:
