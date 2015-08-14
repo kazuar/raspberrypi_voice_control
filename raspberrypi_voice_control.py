@@ -4,6 +4,7 @@ import speech_recognition as sr
 
 TURN_TV_ON = "turn tv on"
 TURN_TV_OFF = "turn tv off"
+STOP_CONTROL = "stop control"
 
 def main():
     # Create cec control
@@ -32,12 +33,12 @@ def main():
                 # Get tv device and turn it off
                 tv = cec.Device(0)
                 tv.standby()
+            elif STOP_CONTROL in command.lower():
+                # Stop program
+                break
         except LookupError:
             # In case of an exception
             print("Could not translate audio")
-        except KeyboardInterrupt:
-            # Stop loop
-            print 'Stop voice control'
 
 if __name__ == '__main__':
     main()
